@@ -1,5 +1,5 @@
 The task was: to update the database when closing a tab or browser.
-Timers can work in parallel on a computer and a mobile device.
+Stopwatches can work in parallel on a computer and a mobile device.
 It was not possible to implement sending when the tab is closed.
 So I will briefly tell you about what was used in the process to solve this problem.
 The function of identifying the input device, due to the fact that only the desktop was used, turned out to be useless.
