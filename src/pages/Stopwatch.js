@@ -1,6 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import "../App.css";
 import firebase from "firebase";
+import { Redirect } from "react-router-dom";
+import { AuthContext } from "./Auth";
+import firebaseConfig from "../config.js";
 
 require("firebase/firestore");
 
@@ -13,6 +16,8 @@ const StopWatch = () => {
   const [uid, setUid] = useState(0);
   const InnerWidth = window.innerWidth;
   const db = firebase.firestore();
+  const { currentUser } = useContext(AuthContext);
+
 
   const handleSendData = () => {
     console.log("Console: desk", desktopTimer, "mob:", mobileTimer);
@@ -44,6 +49,9 @@ const StopWatch = () => {
     }
   };
   useEffect(() => {
+    if (!currentUser) {
+      return <Redirect to="/" />;
+    }
     db.collection("users")
       .get()
       .then((querySnapshot) => {
@@ -115,6 +123,7 @@ const StopWatch = () => {
           </div>
         </div>
       </div>
+        <button className="sign-out-btn" onClick={() => firebaseConfig.auth().signOut()}>Sign out</button>
     </div>
   );
 };

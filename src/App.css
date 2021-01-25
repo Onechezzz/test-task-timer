@@ -59,6 +59,16 @@ h4{
   background: #828282;
   border-radius: 63px;
 }
+.sign-out-btn{
+  font-size: 40px;
+  line-height: 47px;
+  width: 277px;
+  height: 73px;
+  background: #828282;
+  border-radius: 63px;
+  position: absolute;
+    left: 41%;
+}
 #email{
   font-size: 40px;
 }

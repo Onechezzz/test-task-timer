@@ -3,55 +3,50 @@ import "../App.css";
 import firebase from "firebase";
 import LogIn from "./LogIn";
 import { NavLink } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import index from "../index";
+import "firebase/auth";
+import "firebase/firestore";
+import firebaseConfig from "../config";
 
 const SignUp = () => {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [hasAccount, setHasAccount] = useState(false);
-  const [id, setId] = useState(null);
-
-  const handleChange = ({ target: { value, id } }) => {
-    setId(value);
-    console.log(value);
+  const [currentUser, setCurrentUser] = useState(null);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = e.target.elements;
+    try {
+      firebaseConfig.auth().createUserWithEmailAndPassword(email.value, password.value);
+      setCurrentUser(true);
+    } catch (error) {
+      alert(error);
+    }
   };
-  const createAccount = (value) => {
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((response) => {
-        setHasAccount(true);
-        console.log(response);
-      })
-      .catch((error) => console.log(error));
-  };
+  if (currentUser) {
+      return <Redirect to="/stopwatch" />;
+  }
   return (
-    <div className="login-block">
-      <h4>Register</h4>
-      <input
-        type="text"
-        id="email"
-        placeholder="Email"
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        id="password"
-        placeholder="Password"
-        onChange={handleChange}
-      />
-      <NavLink
-        to={{
-          pathname: "./",
-        }}
-      >
-        <input
-          type="submit"
-          value="Register"
-          className="submit-btn"
-          onClick={createAccount}
-        />
-      </NavLink>
-    </div>
+
+    <form onSubmit={handleSubmit} className="login-block">
+     <h1>Register</h1>
+     <input
+       type="text"
+       id="email"
+       name="email"
+       placeholder="Email"
+
+     />
+     <input
+       type="password"
+       id="password"
+       name="password"
+       placeholder="Password"
+
+     />
+
+       <button type="submit"  className="submit-btn">Register</button>
+
+         </form>
+
   );
 };
 
