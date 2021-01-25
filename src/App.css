@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-color: #FFFFFF;
+  color: #010b40;
+}
+
+.app {
+  background-color: grey;
+  margin: 0 auto;
+  width: 300px;
+  height: 200px;
+  position: relative;
+  border-radius: 10px;
+}
+input{
+  background-color: #828282;
+  color:#000000;
+  background: rgba( 0,0,0,0);
+  background: transparent;
+    border: none;
+
+
+}
+h3 {
+  color: white;
+  text-align: center;
+  padding-top: 8px;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 20px;
+  color: #88888C;
+}
+h4{
+  font-size: 46px;
+}
+.login-block{
+  border-radius: 57px;
+  background-color: #C4C4C4;
+  width:41%;
+  height: 60%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction:column;
+}
+.submit-btn{
+  font-size: 40px;
+  line-height: 47px;
+  width: 277px;
+  height: 73px;
+  background: #828282;
+  border-radius: 63px;
+}
+#email{
+  font-size: 40px;
+}
+#password{
+  font-size: 40px;
+}
+.stopwatch-card {
+  position: absolute;
+  text-align: center;
+  background-color: #a69c9c;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 325px;
+  height: 130px;
+  top: 110px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  outline: none;
+  background: transparent;
+  border: 1px solid blue;
+  padding: 5px 10px;
+  border-radius: 7px;
+  color: blue;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 5px;
+}
